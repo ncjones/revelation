@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+
+import sys
+import getpass
+from revelation.datahandler.rvl import Revelation2
+
+if __name__ == "__main__":
+	if len(sys.argv) != 2:
+		print "Usage: %(cmd)s <file>" % { "cmd": sys.argv[0] }
+		exit(1)
+	file = sys.argv[1]
+	password = getpass.getpass()
+	data = open(file, "r").read()
+	print Revelation2().load_data(data, password)
+
